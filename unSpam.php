@@ -1,4 +1,5 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
     $db = mysqli_connect('127.0.0.1', 'root', '', 'dbuser');
     if (!$db) {
         die("Connection failed: " . mysqli_connect_error());
