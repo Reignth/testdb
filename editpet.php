@@ -13,9 +13,10 @@
     $petDoB = $_POST['petDoB'];
     $petImage = $_POST['petImage'];
 
-    $currentDate = date("d-m-Y");
-    $age = date_diff(date_create($petDoB), date_create($currentDate));
-    $agefix = $age->format("%y") * 12;
+    $currentDate = new DateTime();
+    $input_date = new DateTime($petDoB);
+    $interval = $currentDate->diff($input_date);
+    $agefix = $interval->m + ($interval->y * 12);
 
 
     $update  = "UPDATE pet SET nama_pet ='$nama_pet', jenis = '$jenis', breed = '$breed', gender = '$gender', berat = '$berat', petDoB = '$petDoB', petImage = '$petImage', umur = '$agefix' WHERE id_pet = '$id_pet'";
