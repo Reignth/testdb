@@ -11,10 +11,10 @@
     $image = $_POST['userImage'];
     
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = false;
+        $emailErr = "false";
       }
     else{
-        $emailErr = true;
+        $emailErr = "true";
     }
 
     $sql = "SELECT * FROM user WHERE email = '$email' OR NoHp = '$nohp'";
@@ -24,7 +24,7 @@
     $n = 5;
     $mid = 'miarao-'.bin2hex(random_bytes($n));
 
-    if($emailErr = true){
+    if($emailErr == "true"){
         if ($count >= 1) {
             echo json_encode("data already exist");
         }else{
