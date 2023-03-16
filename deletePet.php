@@ -7,12 +7,13 @@
 
     $id_pet = $_POST['id_pet'];
 
-    $delpet = "DELETE * FROM pet WHERE id_pet = '$id_pet'";
-    $query = mysqli_query($db, $delpet);
+    $delpet = "DELETE FROM pet WHERE id_pet = '$id_pet'";
+    $query1 = mysqli_query($db, $delpet);
 
-    
+    $delcert = "DELETE FROM vaccinecert WHERE id_pet = '$id_pet'";
+    $query2 = mysqli_query($db, $delcert);
 
-    if ($query) {
+    if ($query1 && $query2) {
         echo json_encode("Success");
     }
     else{
