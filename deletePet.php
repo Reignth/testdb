@@ -17,7 +17,7 @@
     $query1 = mysqli_query($db, $delpet);
     $query2 = mysqli_query($db, $delcert);
 
-    if ($query1 && $query2) {
+    if ($query1) {
         echo json_encode("Success");
     }
     else{
